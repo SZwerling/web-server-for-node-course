@@ -1,5 +1,7 @@
-const path = require('path')
+const path = require('path');
 const express = require('express'); // returns a function
+const hbs = require('hbs');
+
 
 
 const app = express();
@@ -8,29 +10,33 @@ const app = express();
 app.use(express.static(path.join(__dirname, '../public')))
 
 //define paths of expres config
-const viewsPath = path.join( __dirname, '../views' );
+const viewsPath = path.join( __dirname, '../templates/views');
+const partialsPath = path.join(__dirname, '../templates/partials')
 
 //set up handlebars engine and views location
 app.set('view engine', 'hbs')
 app.set('views', viewsPath)
+hbs.registerPartials(partialsPath)
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'weather app',
+        title: 'Weather App',
         name: 'Seth Zwerling'
     })
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: 'about a dog',
-        name: 'His name was Mr. Zwerling'
+        title: 'About',
+        name: 'Seth Zwerling'
     })
 })
 
 app.get('/help', (req, res) => {
     res.render('help', {
-        message: 'We are here to help you.'
+        message: 'We are here to help you.',
+        title: 'Help',
+        name: 'Seth Zwerling'
     })
 })
 
