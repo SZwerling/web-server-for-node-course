@@ -40,8 +40,6 @@ app.get('/help', (req, res) => {
     })
 })
 
-
-
 app.get('/weather', (req, res) => {
     res.send({
         forecast: 'lots of rain',
@@ -49,7 +47,22 @@ app.get('/weather', (req, res) => {
     })
 })
 
+app.get('/help/*', (req, res) => {
+    res.render('error', {
+        title: '404',
+        name: 'Seth Zwerling',
+        message: 'Help article not found.'
 
+    })
+})
+
+app.get('*', (req, res) => {
+    res.render('error', {
+        title : '404',
+        name: 'Seth Zwerling',
+        message: 'Page not found.'
+    })
+})
 
 app.listen(3000, () => {   //second argt is a callback function that runs when the server is up and running
     console.log('up and running')
