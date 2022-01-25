@@ -6,15 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://f.v1.n0.cdn.getcloudapp.com/items/1J0Y1N1I441v1E2k3e2W/weather.png">
     <link rel="stylesheet" href="/css/styles.css">
-    <script src="./js/app.js"></script>
+    
     <title>Index</title>
 </head>
 <body>
     <div class="main-content">
         {{>header}}
+        <p1>Use this site to get your weather!</p1>
+
+        <form>
+            <input type="text" placeholder="location">
+            <button>search</button>
+        </form>
     </div>
     
     
     {{>footer}}
+
+    <script src="./js/app.js"></script>
 </body>
 </html>
